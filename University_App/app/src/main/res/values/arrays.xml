@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="week_days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <string-array name="group_list">
+        <item>IT901</item>
+        <item>MA901</item>
+        <item>ACc901</item>
+    </string-array>
+
+
+
+</resources>
+

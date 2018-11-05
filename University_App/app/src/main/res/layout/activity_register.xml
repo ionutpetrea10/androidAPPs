@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/moodle_logo"
+            android:drawableLeft="@drawable/modle_logo"
             android:fontFamily="monospace"
             android:text="Welcome to Roehampton  University"
             android:textAlignment="center"
@@ -64,6 +64,14 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/reg_Stud_id"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:fontFamily="monospace"
+            android:hint="Student ID"
+            android:maxLength="20" />
+        <EditText
             android:id="@+id/reg_Fname"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -92,12 +100,12 @@
             android:maxLength="35" />
 
         <EditText
-            android:id="@+id/reg_Address"
+            android:id="@+id/reg_Group"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
             android:fontFamily="monospace"
-            android:hint="Address"
+            android:hint="Student Group"
             android:maxLength="40" />
 
 

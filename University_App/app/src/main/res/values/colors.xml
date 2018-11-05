@@ -14,5 +14,7 @@
     <color name="green">#00bfa5</color>
     <color name="colorAccent1">#FF4081</color>
     <color name="darkGrey">#CCCCCC</color>
+    <color name="profileGrayLight">#fafafa</color>
+    <color name="profileBlue">#09c6df</color>
 
 </resources>

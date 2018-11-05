@@ -17,14 +17,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //The SQL query for table creation
-//<
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "+Contract.StudentEntry.TABLE_NAME +
-            "( ` _student_id_` INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " `_fn_` TEXT, " +
-            "`_sn_` TEXT, " +
-            "`_email_` TEXT, " +
-            "`_address_` TEXT, " +
-            "`_password_` TEXT )";
+            " ( `_student_id_` INTEGER NOT NULL UNIQUE, " +
+            "`_fn_` TEXT NOT NULL, " +
+            "`_sn_` TEXT NOT NULL, " +
+            "`_email_` TEXT NOT NULL UNIQUE, " +
+            "`_group_` TEXT NOT NULL, " +
+            "`_password_` TEXT NOT NULL, " +
+            "PRIMARY KEY(`_student_id_`))";
 
 
     //The SQL query if table exists before creation
@@ -39,8 +39,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d("Database Operations","Database created");
     }
 
-    public static void addStudent(String fname, String sname, String password, String email) {
-    }
 
     //create the table
     @Override
