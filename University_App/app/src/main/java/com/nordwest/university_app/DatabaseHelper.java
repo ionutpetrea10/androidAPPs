@@ -11,9 +11,9 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    //create constant variables for database_name and version
-    public static final String DATABASE_NAME = "university.db";
-    public static final int DATABASE_VERSION = 1;
+    private Context context;
+    private SQLiteDatabase database;
+    private Contract dbHelper;
 
 
     //The SQL query for table creation
@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //constructor for this class
     //In order to create a data base we need this constructor which needs the following parameters
     public DatabaseHelper(Context context){
-        super(context, DATABASE_NAME,null,DATABASE_VERSION);
+        super(context, Contract.DATABASE_NAME,null,Contract.DATABASE_VERSION);
         //A log message in order to debug easier
         Log.d("Database Operations","Database created");
     }
@@ -55,6 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //upload existing table
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -64,29 +65,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(DROP_TABLE);
         onCreate(db);
-
-        //A log message in order to debug easier
-        Log.d("Database Operations","Table "+Contract.StudentEntry.TABLE_NAME+" dropped and oncreate called ");
     }
+
     //at this point DB and the table is created in order to insert data in the table _user_ new methods must be created within the class DBHelper
 
 //    //method to insert data into the table
 //    public static void addStudent(String fName, String sName, String email, String address, String password, SQLiteDatabase database) {
 //
-//        //create a contentValues obj to be passed to the DB table as a record
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Contract.StudentEntry.STUDENT_FNAME,fName);
-//        contentValues.put(Contract.StudentEntry.STUDENT_SNAME,sName);
-//        contentValues.put(Contract.StudentEntry.STUDENT_EMAIL,email);
-//        contentValues.put(Contract.StudentEntry.STUDENT_ADDRESS,address);
-//        contentValues.put(Contract.StudentEntry.STUDENT_PASWD,password);
-//
-//        //data collection was passed into contentValues at this stage
-//        //next the contentValues wil be passed into database table _user_ as a record (obj)
-//        database.insert(Contract.StudentEntry.TABLE_NAME, null, contentValues);
-//        //A log message in order to debug easier
-//        Log.d("Database Operations","New record inserted in table "+ Contract.StudentEntry.TABLE_NAME);
-//    }
+
     public Cursor getInforation(DatabaseHelper db){
         SQLiteDatabase SQ = db.getReadableDatabase();
         String[] collection = {Contract.StudentEntry.STUDENT_EMAIL, Contract.StudentEntry.STUDENT_PASWD};

@@ -6,6 +6,11 @@ public final class Contract {
     private Contract(){
 
     }
+
+    //create constant variables for database_name and version
+    public static final String DATABASE_NAME = "university.db";
+    public static final int DATABASE_VERSION = 1;
+
     //inner class with the DB schema
 
     public static class StudentEntry{
@@ -23,8 +28,6 @@ public final class Contract {
         public static String actualUserGroupName;
         public static String actualUserEmail;
         public static String actualUserStudentID;
-
-
 
     }
 

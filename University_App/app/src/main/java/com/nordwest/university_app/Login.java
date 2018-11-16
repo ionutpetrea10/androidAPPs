@@ -61,8 +61,8 @@ public class Login extends AppCompatActivity {
     private View.OnClickListener mOnLoginClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String email = userEmail.getText().toString();
-            String pass = userPassword.getText().toString();
+            String email = userEmail.getText().toString().trim();
+            String pass = userPassword.getText().toString().trim();
 
             if (isEmailValid() && isPasswordValid()){
                 userEmail.setText("");
@@ -130,6 +130,8 @@ public class Login extends AppCompatActivity {
 
     private void showMessage (@StringRes int string) {
         Toast.makeText(this, string, Toast.LENGTH_LONG).show();
+        userEmail.setText("");
+        userPassword.setText("");
     }
 
 

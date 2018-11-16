@@ -45,6 +45,8 @@
                 android:src="@drawable/ic_account_circle_black_24dp"/>
             <EditText
                 android:id="@+id/reg_Fname"
+                android:maxLength="40"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +65,8 @@
                 android:src="@drawable/ic_perm_contact_calendar_black_24dp"/>
             <EditText
                 android:id="@+id/reg_Sname"
+                android:maxLength="40"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,6 +85,7 @@
                 android:src="@drawable/ic_email_black_24dp"/>
             <EditText
                 android:id="@+id/reg_Email"
+                android:digits=".@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,6 +93,31 @@
                 android:layout_gravity="center_vertical"
                 android:hint="Email@example.com"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_lock_black_24dp" />
+
+            <EditText
+                android:id="@+id/reg_Pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:paddingLeft="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
@@ -104,29 +134,10 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:layout_gravity="center_vertical"
-                android:hint="Group"/>
+                android:hint="Group"
+                android:maxLength="4"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_lock_black_24dp"/>
-            <EditText
-                android:id="@+id/reg_Pass"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:layout_gravity="center_vertical"
-                android:inputType="textPassword"
-                android:hint="Password"
-                android:maxLength="16"/>
 
-        </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
@@ -137,7 +148,8 @@
                 android:textStyle="normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"
                 android:hint="@string/requirement"/>
         </LinearLayout>

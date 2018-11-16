@@ -16,5 +16,6 @@
     <color name="darkGrey">#CCCCCC</color>
     <color name="profileGrayLight">#fafafa</color>
     <color name="profileBlue">#09c6df</color>
+    <color name="cardcolor">#e6e6e6</color>
 
 </resources>
