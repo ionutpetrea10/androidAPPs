@@ -64,7 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         contentValues.put(Contract.StudentEntry.STUDENT_PASWD, password);
 
                         db.insert(Contract.StudentEntry.TABLE_NAME, null, contentValues);
-                        db.close();
+                        //db.close();
                         Intent intent = new Intent(RegistrationActivity.this, Login.class);
                         setBlank();
                         startActivity(intent);
@@ -104,20 +104,27 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private boolean isEmailValid(String userEmail){
         if (!TextUtils.isEmpty(userEmail) && Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+
             db = openHelper.getReadableDatabase();
             cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_NAME+ " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? ", new String[]{userEmail});
-            if (cursor.getCount()>0){
+
+            if (cursor.getCount()==0){
+                return true;
+            } else{
                 errorCode = 1;
                 _txtEmail_.setText("");
-                return true;
+                return false;
             }
-            return true;
+
         }else {
             errorCode = 0;
             _txtEmail_.setText("");
             return false;
         }
     }
+
+
+
 
     //checks if the password is not empty and longer than eight characters
 
