@@ -157,4 +157,48 @@
         </LinearLayout>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bg_fab_menu"
+        android:background="#48000000"
+        android:alpha="0"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_signOut"
+        android:visibility="gone"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="23dp"
+        android:rotation="90"
+        app:fabSize="mini"
+        android:src="@drawable/ic_business_center_black_24dp"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_mainActivity"
+        android:visibility="gone"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="23dp"
+        android:rotation="90"
+        app:fabSize="mini"
+        android:src="@drawable/ic_exit_to_app_black_24dp"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_main"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_close_black_24dp"/>
+
+
+
 </LinearLayout>

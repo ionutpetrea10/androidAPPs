@@ -11,7 +11,7 @@
     <string name="register">Register</string>
     <string name="login_auth">Login</string>
     <string name="loginOrEmail">User Email</string>
-    <string name="login_inputError">Error, account does not exist</string>
+    <string name="login_inputError">Error, incorrect account details</string>
     <string name="contact_us">Contact us</string>
     <string name="check_your_profile">Check your profile</string>
     <string name="name_surname">Name Surname</string>
@@ -38,4 +38,6 @@
     <string name="phone_number">+442083926000</string>
     <string name="forgotten_pw">If you have lost or forgotten your Roehampton account password or your username please contact the Roehampton IT Helpdesk.</string>
     <string name="requirement">Please, enter your correct group code (IT01, IT02, MA01 or BA01) within a password between eight and sixteen characters!</string>
+    <string name="library_message">Our library provides a various range of books. Please search by ISBN for a specific book or by category in order to see similar books</string>
+    <string name="search">Search</string>
 </resources>
