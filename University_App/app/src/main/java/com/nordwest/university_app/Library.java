@@ -22,7 +22,7 @@ public class Library extends AppCompatActivity {
 
     SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
-    Button btnSearch, review;
+    Button btnSearch;
     Switch switchCategory, switchISBN;
     EditText editTextdb;
     TextView textViewdb;
@@ -46,13 +46,11 @@ public class Library extends AppCompatActivity {
         textViewdb = findViewById(R.id.textViewdb);
         switchCategory = findViewById(R.id.switchCategory);
         switchISBN = findViewById(R.id.switchISBN);
-        review = findViewById(R.id.btnReview);
 
 
         switchCategory.setOnClickListener(mOnSw1ClickListener);
         switchISBN.setOnClickListener(mOnSw2ClickListener);
         btnSearch.setOnClickListener(mOnBtnSearchClickListener);
-        review.setOnClickListener(mOnBtnSearchClickListener);
 
         rv = findViewById(R.id.rvLibrary);
 
