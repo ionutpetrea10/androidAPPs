@@ -18,15 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".Login" />
-        <activity android:name=".Dashboard" />
-        <activity android:name=".Wifi" />
-        <activity android:name=".Timetable" />
-        <activity android:name=".WebDashboard" />
-        <activity android:name=".FloorPlan" />
-        <activity android:name=".Library" />
-        <activity android:name=".Profile" />
+        <activity android:name=".RegistrationActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Login" android:screenOrientation="portrait" />
+        <activity android:name=".Dashboard" android:screenOrientation="portrait" />
+        <activity android:name=".Wifi" android:screenOrientation="portrait" />
+        <activity android:name=".Timetable" android:screenOrientation="portrait" />
+        <activity android:name=".WebDashboard" android:screenOrientation="portrait" />
+        <activity android:name=".FloorPlan" android:screenOrientation="portrait" />
+        <activity android:name=".Library" android:screenOrientation="portrait" />
+        <activity android:name=".Profile" android:screenOrientation="portrait" />
+        <activity android:name=".SliderActivity"></activity>
     </application>
 
 </manifest>
