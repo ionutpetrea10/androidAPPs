@@ -87,6 +87,9 @@ public class RegistrationActivity extends AppCompatActivity {
                             case 4:
                                 Toast.makeText(getApplicationContext(), "Incorrect second name", Toast.LENGTH_SHORT).show();
                                 break;
+                            case 5:
+                                Toast.makeText(getApplicationContext(), "Incorrect password used", Toast.LENGTH_SHORT).show();
+                                break;
                             default:
                                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
                         }
@@ -133,6 +136,7 @@ public class RegistrationActivity extends AppCompatActivity {
             return true;
         }else {
             Toast.makeText(this, "Password too short", Toast.LENGTH_SHORT).show();
+            errorCode = 5;
             _txtPass_.setText("");
             return false;
         }

@@ -5,7 +5,7 @@ public class MyViewBookHolder {
     String bookTitle;
     String bookISBN;
     String bookAuthor;
-    String bookEdition;;
+    String bookEdition;
 
     public MyViewBookHolder() {
     }

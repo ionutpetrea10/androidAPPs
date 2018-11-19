@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
     private View.OnClickListener mOnLoginClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String email = userEmail.getText().toString().trim();
+            String email = userEmail.getText().toString().trim().toLowerCase();
             String pass = userPassword.getText().toString().trim();
 
             if (isEmailValid() && isPasswordValid()){
@@ -83,9 +83,11 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this, Dashboard.class);
                         startActivity(intent);
 
+                }else {
+                    Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
                 }
             }else {
-                showMessage(R.string.login_inputError);
+                Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
             }
 
         }
