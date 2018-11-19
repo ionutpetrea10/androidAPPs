@@ -34,10 +34,11 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
         holder.book_title.setText(mBooks.get(position).getBookTitle());
         holder.book_author.setText(mBooks.get(position).getBookAuthor());
         holder.book_edition.setText(mBooks.get(position).getBookEdition());
+
         holder.btnReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "click at position" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "click at position" + mBooks.get(position).getBookISBN(), Toast.LENGTH_SHORT).show();
             }
         });
 
