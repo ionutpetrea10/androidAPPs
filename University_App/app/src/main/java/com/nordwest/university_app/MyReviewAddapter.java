@@ -16,6 +16,8 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
     Context context;
     List<ReviewHolder> mReviews;
     Dialog dialog;
+    Button btnReviewedDone;
+    TextView closePopup;
 
     public MyReviewAddapter(Context context, List<ReviewHolder> mReviews) {
         this.context = context;
@@ -39,10 +41,29 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
         holder.btnADDReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 dialog.setContentView(R.layout.custompop_up);
                 dialog.show();
+
+                btnReviewedDone = dialog.findViewById(R.id.btnReviewedDone);
+                closePopup = dialog.findViewById(R.id.closePopup);
+
+                btnReviewedDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(context, "hello", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                closePopup.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
+
+
 
     }
 
@@ -54,7 +75,7 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
 
     public class myReviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView reviewID, bookISBN,review_author, reviewText, closePopup;
+        TextView reviewID, bookISBN,review_author, reviewText;
         Button btnADDReview;
 
         public myReviewViewHolder(View itemView) {
@@ -65,15 +86,11 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
             reviewID = itemView.findViewById(R.id.review_ID);
             reviewText = itemView.findViewById(R.id.reviewOfTheBook);
             btnADDReview = itemView.findViewById(R.id.btnAddReview);
-            closePopup = itemView.findViewById(R.id.closePopup);
         }
 
         @Override
         public void onClick(View view) {
 
         }
-    }
-    public void closePopoup (View v){
-        dialog.dismiss();
     }
 }

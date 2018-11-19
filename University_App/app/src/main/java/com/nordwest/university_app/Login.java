@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
             if (isEmailValid() && isPasswordValid()){
                 userEmail.setText("");
                 userPassword.setText("");
-                cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_NAME+ " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? AND " + Contract.StudentEntry.STUDENT_PASWD + " =? ", new String[]{email, pass});
+                cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_USER_NAME + " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? AND " + Contract.StudentEntry.STUDENT_PASWD + " =? ", new String[]{email, pass});
 
                 if ((cursor != null) && (cursor.moveToFirst()) ){
                         do{

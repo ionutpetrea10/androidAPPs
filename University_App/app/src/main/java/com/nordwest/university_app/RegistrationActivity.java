@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -63,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         contentValues.put(Contract.StudentEntry.STUDENT_GROUP, group);
                         contentValues.put(Contract.StudentEntry.STUDENT_PASWD, password);
 
-                        db.insert(Contract.StudentEntry.TABLE_NAME, null, contentValues);
+                        db.insert(Contract.StudentEntry.TABLE_USER_NAME, null, contentValues);
                         //db.close();
                         Intent intent = new Intent(RegistrationActivity.this, Login.class);
                         setBlank();
@@ -109,7 +107,7 @@ public class RegistrationActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(userEmail) && Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
 
             db = openHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_NAME+ " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? ", new String[]{userEmail});
+            cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_USER_NAME + " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? ", new String[]{userEmail});
 
             if (cursor.getCount()==0){
                 return true;

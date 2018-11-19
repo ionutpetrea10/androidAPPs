@@ -1,6 +1,5 @@
 package com.nordwest.university_app;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,18 +16,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //The SQL query for table creation
-    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "+Contract.StudentEntry.TABLE_NAME +
-            "(`_student_id_`INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "`_fn_`TEXT NOT NULL," +
-            "`_sn_`TEXT NOT NULL," +
-            "`_email_`TEXT NOT NULL UNIQUE," +
-            "`_group_`TEXT NOT NULL," +
-            "`_password_`TEXT NOT NULL)";
+    public static final String CREATE_TABLE_USER = "CREATE TABLE IF NOT EXISTS "+Contract.StudentEntry.TABLE_USER_NAME +
+            "(" + Contract.StudentEntry.STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+             Contract.StudentEntry.STUDENT_FNAME + " TEXT NOT NULL," +
+            Contract.StudentEntry.STUDENT_SNAME + " TEXT NOT NULL," +
+            Contract.StudentEntry.STUDENT_EMAIL + " TEXT NOT NULL UNIQUE," +
+            Contract.StudentEntry.STUDENT_GROUP + " TEXT NOT NULL," +
+            Contract.StudentEntry.STUDENT_PASWD + " TEXT NOT NULL)";
 
+    public static final String CREATE_RESERVE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS " + Contract.ReservationEntry.TABLE_RESERVATION_NAME +
+            "( "+Contract.ReservationEntry.RESERVATION_ID +
+            " INTEGER PRIMARY KEY AUTOINCREMENT," + Contract.ReservationEntry.USER_ID + " INTEGER NOT NULL," +
+            Contract.ReservationEntry.BOOK_ID + "INTEGER NOT NULL," +
+            "FOREIGN KEY(`_user_id_`) REFERENCES `_book_`(`_ISBN_`)," +
+            "FOREIGN KEY(`_book_id_`) REFERENCES `_user_`(`_student_id_`));";
 
 
     //The SQL query if table exists before creation
-    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + Contract.StudentEntry.TABLE_NAME;
+    public static final String DROP_TABLE_USER = "DROP TABLE IF EXISTS " + Contract.StudentEntry.TABLE_USER_NAME;
+    public static final String DROP_TABLE_RESERVATION = "DROP TABLE IF EXISTS " + Contract.ReservationEntry.TABLE_RESERVATION_NAME;
+
 
 
     //constructor for this class
@@ -47,11 +54,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //passing through execSQL the SQLiteDB parameter (db=CREATE_TABLE)
         // object in order to create the table
 
-        db.execSQL(CREATE_TABLE);
-
+        db.execSQL(CREATE_TABLE_USER);
+        db.execSQL(CREATE_RESERVE_BOOK_TABLE);
 
         //A log message in order to debug easier
-        Log.d("Database Operations","Table "+Contract.StudentEntry.TABLE_NAME+" created");
+        Log.d("Database Operations","Table "+Contract.StudentEntry.TABLE_USER_NAME +" created");
     }
 
     //upload existing table
@@ -63,7 +70,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //if table dropped call the onCreate method
         // in order to continue the table creation
 
-        db.execSQL(DROP_TABLE);
+        db.execSQL(DROP_TABLE_USER);
+        db.execSQL(DROP_TABLE_RESERVATION);
         onCreate(db);
     }
 
@@ -73,11 +81,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //    public static void addStudent(String fName, String sName, String email, String address, String password, SQLiteDatabase database) {
 //
 
-    public Cursor getInforation(DatabaseHelper db){
+    /*public Cursor getInforation(DatabaseHelper db){
         SQLiteDatabase SQ = db.getReadableDatabase();
         String[] collection = {Contract.StudentEntry.STUDENT_EMAIL, Contract.StudentEntry.STUDENT_PASWD};
-        Cursor cursor = SQ.query(Contract.StudentEntry.TABLE_NAME,collection,null,null,null,null,null);
+        Cursor cursor = SQ.query(Contract.StudentEntry.TABLE_USER_NAME,collection,null,null,null,null,null);
         return cursor;
-    }
+    }*/
 
 }
