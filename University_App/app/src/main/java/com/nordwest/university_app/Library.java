@@ -52,7 +52,7 @@ public class Library extends AppCompatActivity {
         switchISBN.setOnClickListener(mOnSw2ClickListener);
         btnSearch.setOnClickListener(mOnBtnSearchClickListener);
 
-        rv = findViewById(R.id.rvLibrary);
+        rv = findViewById(R.id.rvBooks);
 
         MyBookAdaptor myBookAdaptor = new MyBookAdaptor(this, retriedBooks);
         rv.setAdapter(myBookAdaptor);
