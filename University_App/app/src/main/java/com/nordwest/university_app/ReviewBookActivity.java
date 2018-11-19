@@ -1,5 +1,7 @@
 package com.nordwest.university_app;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -7,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +26,7 @@ public class ReviewBookActivity extends AppCompatActivity {
     RecyclerView rv;
     List<ReviewHolder> retriedReviews = new ArrayList<>();
     TextView bookReviewed;
-
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +34,13 @@ public class ReviewBookActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         bookISBN = bundle.getString(BOOK_ID_KEY);
         bookReviewed = findViewById(R.id.bookReviewed);
+        dialog = new Dialog(this);
+
+
 
         openHelper = new DatabaseHelper(this);
         db = openHelper.getReadableDatabase();
+
 
         String ISBN, reviewTxt, author, reviewID, titleOfReviewedBook;
 
@@ -70,4 +77,5 @@ public class ReviewBookActivity extends AppCompatActivity {
 
 
     }
+
 }

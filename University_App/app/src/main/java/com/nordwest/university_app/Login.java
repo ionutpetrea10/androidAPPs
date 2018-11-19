@@ -83,9 +83,11 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this, Dashboard.class);
                         startActivity(intent);
 
+                }else {
+                    Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
                 }
             }else {
-                showMessage(R.string.login_inputError);
+                Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
             }
 
         }
