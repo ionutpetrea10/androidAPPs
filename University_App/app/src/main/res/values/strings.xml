@@ -38,10 +38,11 @@
     <string name="phone_number">+442083926000</string>
     <string name="forgotten_pw">If you have lost or forgotten your Roehampton account password or your username please contact the Roehampton IT Helpdesk.</string>
     <string name="requirement">Please, enter your correct group code (IT01, IT02, MA01 or BA01) within a password between eight and sixteen characters!</string>
-    <string name="library_message">Our library provides a various range of books. Please search by ISBN for a specific book or by category in order to see similar books</string>
+    <string name="library_message">Our library provides a range of books. Please, search by book category in order to see similar books, reserve a book or see book reviews</string>
     <string name="search">Search</string>
     <string name="reserve_the_book">Reserve the book</string>
     <string name="cancel_reservation">Cancel Reservation</string>
     <string name="book_isbn">Book ISBN</string>
     <string name="roehampton_library">Roehampton Library</string>
+    <string name="go_back_to_library">Go back to library</string>
 </resources>

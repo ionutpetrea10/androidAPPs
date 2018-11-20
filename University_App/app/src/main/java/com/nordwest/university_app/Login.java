@@ -1,5 +1,6 @@
 package com.nordwest.university_app;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

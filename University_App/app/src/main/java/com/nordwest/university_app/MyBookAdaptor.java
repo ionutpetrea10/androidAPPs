@@ -55,15 +55,15 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
     public class myViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView book_ISBN, book_title,book_author, book_edition, searchedBook;
-        Button btnReview;
+        Button btnReview, btnReserve;
 
     public myViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
         book_ISBN = itemView.findViewById(R.id.book_ISBN);
-        book_title = itemView.findViewById(R.id.review_ID);
+        book_title = itemView.findViewById(R.id.bookTitle);
         book_author = itemView.findViewById(R.id.book_author);
-        book_edition = itemView.findViewById(R.id.reviewOfTheBook);
+        book_edition = itemView.findViewById(R.id.bookEdition);
         btnReview = itemView.findViewById(R.id.btnReview);
         searchedBook = itemView.findViewById(R.id.searchedBook);
 
