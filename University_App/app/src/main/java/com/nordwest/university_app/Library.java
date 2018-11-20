@@ -19,13 +19,11 @@ import java.util.List;
 
 public class Library extends AppCompatActivity {
 
-
+    MyBookAdaptor myBookAdaptor;
     SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
     Button btnSearch;
-    Switch switchCategory, switchISBN;
     EditText editTextdb;
-    TextView textViewdb;
     Cursor cursor;
     RecyclerView rv;
 
@@ -43,44 +41,22 @@ public class Library extends AppCompatActivity {
         /*Creates the link between layout widgets (elements) and activity objects  */
         btnSearch = findViewById(R.id.buttonSearch);
         editTextdb = findViewById(R.id.searchedBook);
-        textViewdb = findViewById(R.id.textViewdb);
-        switchCategory = findViewById(R.id.switchCategory);
-        switchISBN = findViewById(R.id.switchISBN);
-
-
-        switchCategory.setOnClickListener(mOnSw1ClickListener);
-        switchISBN.setOnClickListener(mOnSw2ClickListener);
-        btnSearch.setOnClickListener(mOnBtnSearchClickListener);
 
         rv = findViewById(R.id.rvBooks);
-
-        MyBookAdaptor myBookAdaptor = new MyBookAdaptor(this, retriedBooks);
-        rv.setAdapter(myBookAdaptor);
+        myBookAdaptor = new MyBookAdaptor(this, retriedBooks);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-
-
-
-    }
-
-    private View.OnClickListener mOnBtnSearchClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            String choice, ISBN, title, author, edition;
-            choice = editTextdb.getText().toString().trim();
-            if (switchCategory.isChecked()) {
+        btnSearch.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retriedBooks.clear();
+                String choice, ISBN, title, author, edition;
+                choice = editTextdb.getText().toString().trim();
                 cursor = db.rawQuery("SELECT _ISBN_, _title_, _edition_, (_fn_ || \" \" || _sn_) as _author_\n" +
                         "FROM  _book_ , _author_, _has_written_\n" +
                         "where _book_._ISBN_ = _has_written_._book_id_ and _author_._author_id_ = _has_written_._author_id_ and _book_._catergory_type_ =? ", new String[]{choice});
-                if (cursor != null) {
-                    retriedBooks.clear();
-                    rv.removeAllViewsInLayout();
-                    if (cursor.moveToFirst()) {
+                if (cursor != null && cursor.moveToFirst()) {
                         do {
-
                             ISBN = cursor.getString(cursor.getColumnIndex("_ISBN_"));
                             title = cursor.getString(cursor.getColumnIndex("_title_"));
                             author = cursor.getString(cursor.getColumnIndex("_author_"));
@@ -88,59 +64,15 @@ public class Library extends AppCompatActivity {
 
                             retriedBooks.add(new MyViewBookHolder(ISBN,title,author,edition));
 
-
                             al.add(cursor.getString(cursor.getColumnIndex("_title_")) + " " + cursor.getString(cursor.getColumnIndex("_ISBN_")));
                             cursor.toString();
+                            rv.setAdapter(myBookAdaptor);
                         } while (cursor.moveToNext());
-
-                        textViewdb.setText(al.toString() + ISBN);
-                        al.clear();
-
                     } else {
                         Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
                     }
                 }
-            }else {
-                cursor = db.rawQuery("SELECT _ISBN_, _title_, _edition_, (_fn_ || \" \" || _sn_) as Author\n" +
-                        "FROM  _book_ , _author_, _has_written_\n" +
-                        "where _book_._ISBN_ = _has_written_._book_id_ and _author_._author_id_ = _has_written_._author_id_ and _book_._ISBN_ =? ", new String[]{choice});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        do {
-                            ISBN = cursor.getString(cursor.getColumnIndex("_title_")) + cursor.getString(cursor.getColumnIndex("_ISBN_"));
-                            al.add(cursor.getString(cursor.getColumnIndex("_title_")) + " " + cursor.getString(cursor.getColumnIndex("_ISBN_")));
-                            cursor.toString();
-                        } while (cursor.moveToNext());
-
-                        textViewdb.setText(al.toString() + ISBN);
-                        al.clear();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-        }
-    };
-
-    private View.OnClickListener mOnSw1ClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-            if (switchCategory.isChecked()){
-                switchISBN.setChecked(false);
-                textViewdb.setText(null);
-            }
-         }
-    };
-    private View.OnClickListener mOnSw2ClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-           if (switchISBN.isChecked()){
-               switchCategory.setChecked(false);
-               textViewdb.setText(null);
-           }
-         }
-    };
+        });
+    }
 
 }

@@ -31,11 +31,11 @@
         android:text="Review ID:"
         android:textColor="@color/profileGrayLight"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/review_ID"
+        app:layout_constraintEnd_toStartOf="@+id/bookTitle"
         app:layout_constraintTop_toBottomOf="@+id/textISBN" />
 
     <TextView
-        android:id="@+id/review_ID"
+        android:id="@+id/bookTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/reviewOfTheBook"
+        android:id="@+id/bookEdition"
         android:layout_width="276dp"
         android:layout_height="123dp"
 

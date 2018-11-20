@@ -1,19 +1,14 @@
 package com.nordwest.university_app;
 
-import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -59,8 +54,8 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
             itemView.setOnClickListener(this);
             review_author = itemView.findViewById(R.id.review_author);
             bookISBN = itemView.findViewById(R.id.reviewed_ISBN);
-            reviewID = itemView.findViewById(R.id.review_ID);
-            reviewText = itemView.findViewById(R.id.reviewOfTheBook);
+            reviewID = itemView.findViewById(R.id.bookTitle);
+            reviewText = itemView.findViewById(R.id.bookEdition);
             
         }
 
