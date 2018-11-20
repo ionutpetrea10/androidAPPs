@@ -10,7 +10,6 @@
 
     <TextView
         android:id="@+id/closePopup"
-        android:onClick="closePopoup"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="end"

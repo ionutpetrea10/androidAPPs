@@ -15,7 +15,7 @@ public final class Contract {
 
     public static class StudentEntry{
 
-        public static final String TABLE_NAME = "_user_";
+        public static final String TABLE_USER_NAME = "_user_";
         public static final String STUDENT_FNAME = "_fn_";
         public static final String STUDENT_SNAME = "_sn_";
         public static final String STUDENT_EMAIL = "_email_";
@@ -23,12 +23,21 @@ public final class Contract {
         public static final String STUDENT_GROUP = "_group_";
         public static final String STUDENT_PASWD = "_password_";
 
+
+
+
         public static String actualUserFirstName;
         public static String actualUserSecondName;
         public static String actualUserGroupName;
         public static String actualUserEmail;
         public static String actualUserStudentID;
 
+    }
+    public static class ReservationEntry {
+        public static final String TABLE_RESERVATION_NAME = "_reservations_";
+        public static final String RESERVATION_ID = "_reservations_id_";
+        public static final String USER_ID = "_user_id_";
+        public static final String BOOK_ID = "_book_id_";
     }
 
 }

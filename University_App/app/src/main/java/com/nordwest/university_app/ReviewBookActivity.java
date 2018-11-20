@@ -26,7 +26,6 @@ public class ReviewBookActivity extends AppCompatActivity {
     RecyclerView rv;
     List<ReviewHolder> retriedReviews = new ArrayList<>();
     TextView bookReviewed;
-    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,6 @@ public class ReviewBookActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         bookISBN = bundle.getString(BOOK_ID_KEY);
         bookReviewed = findViewById(R.id.bookReviewed);
-        dialog = new Dialog(this);
 
 
 
@@ -63,6 +61,7 @@ public class ReviewBookActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+
                 }
             }
 
