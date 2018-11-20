@@ -1,5 +1,7 @@
 package com.nordwest.university_app;
 
+import java.security.PublicKey;
+
 public final class Contract {
 
     //to avoid accidental initialization of this class the constructor was declared private
@@ -38,6 +40,13 @@ public final class Contract {
         public static final String RESERVATION_ID = "_reservations_id_";
         public static final String USER_ID = "_user_id_";
         public static final String BOOK_ID = "_book_id_";
+    }
+    public static class ReviewEntry {
+    public static final String TABLE_REVIEWS_NAME = "_reviews_";
+    public static final String BOOK_ID = "_book_id_";
+    public static final String USER_ID = "_user_id_";
+    public static final String REVIEW_TEXT = "_review_";
+    public static final String REVIEW_ID = "_review_id_";
     }
 
 }

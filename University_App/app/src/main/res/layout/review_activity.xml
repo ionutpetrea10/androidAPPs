@@ -68,12 +68,12 @@
                     android:gravity="center">
 
                     <Button
-                        android:id="@+id/btn_issue"
+                        android:id="@+id/addNewReview"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:background="@drawable/buttonstylepink"
-                        android:text="@string/reserve_the_book"
+                        android:background="@drawable/buttonstyledark"
+                        android:text="Add new Review"
                         android:textColor="#fff" />
 
                 </LinearLayout>
@@ -84,11 +84,12 @@
                     android:gravity="center">
 
                     <Button
+                        android:id="@+id/goBackLibrary"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@drawable/buttonstylepink"
-                        android:text="@string/cancel_reservation"
+                        android:text="@string/go_back_to_library"
                         android:textColor="#fff" />
 
                 </LinearLayout>
@@ -99,13 +100,16 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleReviews"
         android:layout_width="match_parent"
-        android:layout_height="261dp"
+        android:layout_height="339dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
         android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -44,4 +44,5 @@
     <string name="cancel_reservation">Cancel Reservation</string>
     <string name="book_isbn">Book ISBN</string>
     <string name="roehampton_library">Roehampton Library</string>
+    <string name="go_back_to_library">Go back to library</string>
 </resources>
