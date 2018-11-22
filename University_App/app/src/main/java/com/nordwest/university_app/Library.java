@@ -10,8 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,7 +21,7 @@ public class Library extends AppCompatActivity {
     SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
     Button btnSearch;
-    EditText editTextdb;
+    EditText searchedBook;
     Cursor cursor;
     RecyclerView rv;
 
@@ -40,7 +38,7 @@ public class Library extends AppCompatActivity {
         db = openHelper.getReadableDatabase();
         /*Creates the link between layout widgets (elements) and activity objects  */
         btnSearch = findViewById(R.id.buttonSearch);
-        editTextdb = findViewById(R.id.searchedBook);
+        searchedBook = findViewById(R.id.searchedBook);
 
         rv = findViewById(R.id.rvBooks);
         myBookAdaptor = new MyBookAdaptor(this, retriedBooks);
@@ -51,7 +49,8 @@ public class Library extends AppCompatActivity {
             public void onClick(View view) {
                 retriedBooks.clear();
                 String choice, ISBN, title, author, edition;
-                choice = editTextdb.getText().toString().trim();
+                choice = searchedBook.getText().toString().trim();
+
                 cursor = db.rawQuery("SELECT _ISBN_, _title_, _edition_, (_fn_ || \" \" || _sn_) as _author_\n" +
                         "FROM  _book_ , _author_, _has_written_\n" +
                         "where _book_._ISBN_ = _has_written_._book_id_ and _author_._author_id_ = _has_written_._author_id_ and _book_._catergory_type_ =? ", new String[]{choice});

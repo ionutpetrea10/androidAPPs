@@ -66,11 +66,7 @@ public class Adaptor extends RecyclerView.Adapter<Adaptor.myVireHolder> {
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
-            switch (pos){
-                case 1:
 
-            }
-                Toast.makeText(mContext, "0", Toast.LENGTH_SHORT).show();
                 mContext.startActivity(new Intent(mContext, SliderActivity.class));
         }
     }

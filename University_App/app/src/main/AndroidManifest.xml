@@ -30,9 +30,8 @@
         <activity
             android:name=".Wifi"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Timetable"
-            android:screenOrientation="portrait" />
+        <activity android:name=".Timetable"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".WebDashboard"
             android:screenOrientation="portrait" />
@@ -46,7 +45,8 @@
             android:name=".Profile"
             android:screenOrientation="portrait" />
         <activity android:name=".SliderActivity" />
-        <activity android:name=".ReviewBookActivity"></activity>
+        <activity android:name=".ReviewBookActivity" />
+        <activity android:name=".Singele_flor_planActivity"></activity>
     </application>
 
 </manifest>

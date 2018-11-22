@@ -90,7 +90,6 @@ public class Login extends AppCompatActivity {
             }else {
                 Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
             }
-
         }
     };
 

@@ -45,4 +45,6 @@
     <string name="book_isbn">Book ISBN</string>
     <string name="roehampton_library">Roehampton Library</string>
     <string name="go_back_to_library">Go back to library</string>
+    <string name="university_name">University of Roehampton</string>
+    <string name="timetable_info">The timetable will be updated automatically by the university. Click on the class card to see the floor plan where the class is scheduled.</string>
 </resources>

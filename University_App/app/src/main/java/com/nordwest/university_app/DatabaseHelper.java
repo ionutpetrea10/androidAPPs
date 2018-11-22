@@ -25,11 +25,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Contract.StudentEntry.STUDENT_PASWD + " TEXT NOT NULL)";
 
     public static final String CREATE_RESERVE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS " + Contract.ReservationEntry.TABLE_RESERVATION_NAME +
-            "( "+Contract.ReservationEntry.RESERVATION_ID +
-            " INTEGER PRIMARY KEY AUTOINCREMENT," + Contract.ReservationEntry.USER_ID + " INTEGER NOT NULL," +
+            "( "+Contract.ReservationEntry.RESERVATION_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Contract.ReservationEntry.USER_ID + " INTEGER NOT NULL," +
             Contract.ReservationEntry.BOOK_ID + "INTEGER NOT NULL," +
-            "FOREIGN KEY(`_user_id_`) REFERENCES `_book_`(`_ISBN_`)," +
-            "FOREIGN KEY(`_book_id_`) REFERENCES `_user_`(`_student_id_`));";
+            Contract.ReservationEntry.RESERVATION_DATE + "date DEFAULT current_date, " +
+            Contract.ReservationEntry.DUE_DATE + " date,"+
+            "FOREIGN KEY(`_user_id_`) REFERENCES `_book_`(`_ISBN_`) ON UPDATE CASCADE," +
+            "FOREIGN KEY(`_book_id_`) REFERENCES `_user_`(`_student_id_`) ON UPDATE CASCADE);";
 
 
     //The SQL query if table exists before creation
