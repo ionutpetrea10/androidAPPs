@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     SQLiteOpenHelper openHelper;
     Button loginBtn, btn_issue, buttonRegister;
     EditText userEmail, userPassword;
-    Cursor cursor;
+    Cursor cursor, cursorBookings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class Login extends AppCompatActivity {
 
         openHelper = new DatabaseHelper(this);
         db = openHelper.getReadableDatabase();
-
 
         /*in order to link the layout components with the activity and make the app dynamic
          * each component on the layout must connect to a similar element on the activity
@@ -68,9 +67,11 @@ public class Login extends AppCompatActivity {
             if (isEmailValid() && isPasswordValid()){
                 userEmail.setText("");
                 userPassword.setText("");
-                cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_USER_NAME + " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? AND " + Contract.StudentEntry.STUDENT_PASWD + " =? ", new String[]{email, pass});
+                try {
+                    cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_USER_NAME + " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? AND " + Contract.StudentEntry.STUDENT_PASWD + " =? ", new String[]{email, pass});
 
-                if ((cursor != null) && (cursor.moveToFirst()) ){
+
+                    if ((cursor != null) && (cursor.moveToFirst()) ){
                         do{
                             Contract.StudentEntry.actualUserFirstName = cursor.getString(cursor.getColumnIndex(Contract.StudentEntry.STUDENT_FNAME));
                             Contract.StudentEntry.actualUserSecondName= cursor.getString(cursor.getColumnIndex(Contract.StudentEntry.STUDENT_SNAME));
@@ -80,13 +81,23 @@ public class Login extends AppCompatActivity {
 
                         }while (cursor.moveToNext());
 
+                        cursorBookings = db.rawQuery("select * from _reservations_ where _reservations_._user_id_ =? ", new String[]{Contract.StudentEntry.actualUserStudentID});
+                        if ((cursorBookings != null) && (cursorBookings.moveToFirst()) ) {
+                            Contract.StudentEntry.student_has_reservation = true;
+                        }else {
+                            Contract.StudentEntry.student_has_reservation = false;
+                        }
 
                         Intent intent = new Intent(Login.this, Dashboard.class);
                         startActivity(intent);
 
-                }else {
-                    Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
-                }
+                    }else {
+                        Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                e.printStackTrace();
+            }
+
             }else {
                 Toast.makeText(Login.this, R.string.login_inputError, Toast.LENGTH_SHORT).show();
             }

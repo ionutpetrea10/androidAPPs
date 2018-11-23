@@ -44,7 +44,12 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
         holder.book_title.setText(mBooks.get(position).getBookTitle());
         holder.book_author.setText(mBooks.get(position).getBookAuthor());
         holder.book_edition.setText(mBooks.get(position).getBookEdition());
-
+//        if(mBooks.get(position).hasReservated){
+//            holder.btnReserve.setVisibility(View.INVISIBLE);
+//
+//        }else {
+//            holder.btnReserve.setVisibility(View.VISIBLE);
+//        }
         holder.btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,12 +74,14 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
                         db.close();
 
                         Toast.makeText(context, "Reserved successfully", Toast.LENGTH_LONG).show();
+                        Contract.StudentEntry.student_has_reservation = true;
                         holder.btnReserve.setVisibility(View.INVISIBLE);
-
+                        Library.cancelReservation.setVisibility(View.VISIBLE);
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
+
 
 
 
@@ -103,7 +110,6 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
 
         TextView book_ISBN, book_title,book_author, book_edition, searchedBook;
         Button btnReview, btnReserve, btnCancelReservation;
-
     public myViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
@@ -114,8 +120,15 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
         btnReview = itemView.findViewById(R.id.btnReview);
         searchedBook = itemView.findViewById(R.id.searchedBook);
         btnReserve = itemView.findViewById(R.id.btnReserve);
-        btnCancelReservation = itemView.findViewById(R.id.btnCancelReservation);
-     /*   openHelper = new DatabaseHelper(context);
+        btnCancelReservation = itemView.findViewById(R.id.cancelReservation);
+
+        if (Contract.StudentEntry.student_has_reservation){
+            btnReserve.setVisibility(View.INVISIBLE);
+        }else {
+            btnReserve.setVisibility(View.VISIBLE);
+
+        }
+        /*   openHelper = new DatabaseHelper(context);
 
         db = openHelper.getReadableDatabase();
         Cursor cursor1;

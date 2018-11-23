@@ -23,7 +23,7 @@ public class SliderActivity extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        closeReturn = findViewById(R.id.closeReturn);
+        closeReturn = findViewById(R.id.closeReturnToTimetable);
 
 
         closeReturn.setOnClickListener(new View.OnClickListener() {

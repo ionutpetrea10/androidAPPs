@@ -38,7 +38,7 @@
     <string name="phone_number">+442083926000</string>
     <string name="forgotten_pw">If you have lost or forgotten your Roehampton account password or your username please contact the Roehampton IT Helpdesk.</string>
     <string name="requirement">Please, enter your correct group code (IT01, IT02, MA01 or BA01) within a password between eight and sixteen characters!</string>
-    <string name="library_message">Our library provides a range of books. Please, search by book category in order to see similar books, reserve a book or see book reviews</string>
+    <string name="library_message">Our library provides a range of books. Please, enter a book category to see all similar books, reserve a book, see reviews, or cancel your reservation</string>
     <string name="search">Search</string>
     <string name="reserve_the_book">Reserve the book</string>
     <string name="cancel_reservation">Cancel Reservation</string>
@@ -47,4 +47,5 @@
     <string name="go_back_to_library">Go back to library</string>
     <string name="university_name">University of Roehampton</string>
     <string name="timetable_info">The timetable will be updated automatically by the university. Click on the class card to see the floor plan where the class is scheduled.</string>
+    <string name="cancel_your_reservation">Cancel your reservation</string>
 </resources>

@@ -28,11 +28,14 @@ public final class Contract {
 
 
 
+
+
         public static String actualUserFirstName;
         public static String actualUserSecondName;
         public static String actualUserGroupName;
         public static String actualUserEmail;
         public static String actualUserStudentID;
+        public static boolean student_has_reservation = false;
 
     }
     public static class ReservationEntry {

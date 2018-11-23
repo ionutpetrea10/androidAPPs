@@ -43,19 +43,6 @@
         android:text="Reserve"
         app:layout_constraintBottom_toTopOf="@+id/btnReview"
         app:layout_constraintEnd_toEndOf="@+id/cardBackground" />
-    <Button
-        android:id="@+id/btnCancelReservation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:visibility="invisible"
-        android:textColor="@color/cardview_light_background"
-        android:background="@drawable/buttonstylepink"
-        android:text="Cancel"
-        app:layout_constraintBottom_toTopOf="@+id/btnReview"
-        app:layout_constraintEnd_toEndOf="@+id/cardBackground" />
 
     <Button
         android:id="@+id/btnReview"
@@ -86,10 +73,8 @@
 
     <TextView
         android:id="@+id/roomClass"
-        android:layout_width="184dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="164dp"
+        android:layout_height="73dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Title"
@@ -97,8 +82,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/roomClasstxt"
-        app:layout_constraintEnd_toStartOf="@+id/btnReview"
-        app:layout_constraintStart_toEndOf="@+id/book_logo" />
+        app:layout_constraintEnd_toStartOf="@+id/btnReview" />
 
     <TextView
         android:id="@+id/book_ISBN"
