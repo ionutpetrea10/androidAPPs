@@ -74,8 +74,9 @@ public class TimetableAdaptor extends RecyclerView.Adapter<TimetableAdaptor.myVi
         public void onClick(View view) {
             int position = getAdapterPosition();
 
-            Intent intent = new Intent(context, Singele_flor_planActivity.class);
+            Intent intent = new Intent(context, Singele_flor_planActivity.class).putExtra(Singele_flor_planActivity.FLOOR_ID, mClasses.get(position).getRoomClass());
             context.startActivity(intent);
+
 
             /*dialog = new Dialog(context);
             dialog.setContentView(R.layout.popup_floor_plan);

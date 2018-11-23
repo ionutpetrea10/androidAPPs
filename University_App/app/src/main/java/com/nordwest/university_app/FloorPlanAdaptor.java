@@ -12,14 +12,14 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class Adaptor extends RecyclerView.Adapter<Adaptor.myVireHolder> {
+public class FloorPlanAdaptor extends RecyclerView.Adapter<FloorPlanAdaptor.myVireHolder> {
 
 
     Context mContext;
     List<ItemViewConstructor> mData;
     int i = 0;
 
-    public Adaptor(Context mContext, List<ItemViewConstructor> mData) {
+    public FloorPlanAdaptor(Context mContext, List<ItemViewConstructor> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -38,7 +38,7 @@ public class Adaptor extends RecyclerView.Adapter<Adaptor.myVireHolder> {
         holder.background_img.setImageResource(mData.get(position).getBackground());
         holder.profile_photo.setImageResource(mData.get(position).getProfilePhoto());
         holder.tv_title.setText(mData.get(position).getProfileName());
-        holder.tv_nbDescription.setText(mData.get(position).getNbFollowers());
+        holder.tv_nbDescription.setText(mData.get(position).getFloorDescription());
     }
 
     @Override
@@ -65,9 +65,10 @@ public class Adaptor extends RecyclerView.Adapter<Adaptor.myVireHolder> {
 
         @Override
         public void onClick(View view) {
-            int pos = getAdapterPosition();
+            int position = getAdapterPosition();
 
-                mContext.startActivity(new Intent(mContext, SliderActivity.class));
+            mContext.startActivity(new Intent(mContext, Singele_flor_planActivity.class).putExtra(Singele_flor_planActivity.FLOOR_ID, mData.get(position).getFloorDescription()));
+            Toast.makeText(mContext, mData.get(position).getFloorDescription(), Toast.LENGTH_SHORT).show();
         }
     }
 }

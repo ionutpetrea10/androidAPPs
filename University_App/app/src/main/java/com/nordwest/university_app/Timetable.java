@@ -1,6 +1,5 @@
 package com.nordwest.university_app;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -68,7 +66,7 @@ public class Timetable extends AppCompatActivity  /* ListActivity implements Ada
                             date = "Tuesday";
                         }
                         if (Contract.StudentEntry.actualUserGroupName.equals("IT01")){
-                            room = "LG01";
+                            room = "RG01";
                         }else {
                             room = "RL01";
                         }
@@ -99,8 +97,8 @@ public class Timetable extends AppCompatActivity  /* ListActivity implements Ada
         floorPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToFloorPlan = new Intent(Timetable.this, FloorPlan.class);
-                startActivity(goToFloorPlan);
+                Intent seeFlorPlanSlider = new Intent(Timetable.this, SliderActivity.class);
+                startActivity(seeFlorPlanSlider);
             }
         });
 
