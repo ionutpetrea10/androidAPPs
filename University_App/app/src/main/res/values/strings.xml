@@ -48,4 +48,7 @@
     <string name="university_name">University of Roehampton</string>
     <string name="timetable_info">The timetable will be updated automatically by the university. Click on the class card to see the floor plan where the class is scheduled.</string>
     <string name="cancel_your_reservation">Cancel your reservation</string>
+    <string name="roehampton_news_feed_coming_soon">Roehampton news feed coming soon</string>
+    <string name="welcome_to_roehampton_news_channel">Welcome to Roehampton News Channel</string>
+    <string name="check_what_s_new">Check what\'s new</string>
 </resources>

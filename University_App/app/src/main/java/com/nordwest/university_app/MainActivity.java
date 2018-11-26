@@ -28,9 +28,10 @@ import android.widget.Button;
 
 
     }
-    /*Methods should be declared private to prevent unauthorised data access from it. There are two methods that must initiate corresponding activities
-     * regarding button pressed */
+    /*Methods should be declared private to prevent unauthorised data access from it. There are two methods that must initiate
+    corresponding activities regarding button pressed */
 
+     //calls and starts for Login RegistrationActivity
      private View.OnClickListener mOnSignUpClickListener = new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -39,11 +40,11 @@ import android.widget.Button;
              startActivity(launchRegistration);
          }
      };
-
+     //calls and starts for Login activity
      private View.OnClickListener mOnSignInClickListener = new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             //
+
              Intent launchSignIn = new Intent(MainActivity.this, Login.class);
              startActivity(launchSignIn);
          }
