@@ -28,25 +28,33 @@ public final class Contract {
 
 
 
+
+
         public static String actualUserFirstName;
         public static String actualUserSecondName;
         public static String actualUserGroupName;
         public static String actualUserEmail;
         public static String actualUserStudentID;
+        public static boolean student_has_reservation = false;
 
     }
     public static class ReservationEntry {
         public static final String TABLE_RESERVATION_NAME = "_reservations_";
-        public static final String RESERVATION_ID = "_reservations_id_";
+        public static final String RESERVATION_ID = "_reservation_id_";
         public static final String USER_ID = "_user_id_";
         public static final String BOOK_ID = "_book_id_";
+        public static final String RESERVATION_DATE = "_reservation_date_";
+        public static final String DUE_DATE = "_due_date_";
+        public static final String DUE_DATE_RESERVATION = "";
+        public static final boolean IS_STUDENT_ALLOWED = true;
+
     }
     public static class ReviewEntry {
-    public static final String TABLE_REVIEWS_NAME = "_reviews_";
-    public static final String BOOK_ID = "_book_id_";
-    public static final String USER_ID = "_user_id_";
-    public static final String REVIEW_TEXT = "_review_";
-    public static final String REVIEW_ID = "_review_id_";
+        public static final String TABLE_REVIEWS_NAME = "_reviews_";
+        public static final String BOOK_ID = "_book_id_";
+        public static final String USER_ID = "_user_id_";
+        public static final String REVIEW_TEXT = "_review_";
+        public static final String REVIEW_ID = "_review_id_";
     }
 
 }

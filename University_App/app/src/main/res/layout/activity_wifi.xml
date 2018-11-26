@@ -1,55 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Wifi"
     android:background="@drawable/gradiend">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
-    android:paddingBottom="30dp"
-    android:id="@+id/welcome">
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_signal_wifi_2_bar_lock_black_24dp"/>
-
-    <TextView
-        android:id="@+id/text_wifi_name"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="monospace"
-        android:text="Training_AP_Public"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="20sp" />
-
-</LinearLayout>
-
     <LinearLayout
+
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        android:paddingBottom="30dp"
-        android:layout_below="@id/welcome"
-        android:layout_marginTop="2dp">
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/modle_logo"
+            android:fontFamily="monospace"
+            android:text="@string/welcome_to_roehampton_news_channel"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="22sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="monospace"
-            android:gravity="center"
-            android:text="The_Skills_To_Succeed"
+            android:text="@string/roehampton_news_feed_coming_soon"
             android:textAlignment="center"
             android:textColor="#fff"
-            android:textSize="28sp" />
+            android:textSize="20sp" />
+
     </LinearLayout>
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

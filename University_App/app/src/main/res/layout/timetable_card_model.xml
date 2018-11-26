@@ -15,7 +15,7 @@
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -25,40 +25,58 @@
         android:id="@+id/roomClasstxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Review ID:"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="4dp"
+        android:text="Room:"
         android:textColor="@color/profileGrayLight"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/roomClass"
-        app:layout_constraintTop_toBottomOf="@+id/textDate" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardBackground"
+        app:layout_constraintStart_toStartOf="@+id/cardBackground" />
 
     <TextView
         android:id="@+id/roomClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Review ID"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="room"
         android:textColor="@color/profileGrayLight"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateClass" />
+        app:layout_constraintBottom_toBottomOf="@+id/cardBackground"
+        app:layout_constraintStart_toEndOf="@+id/roomClasstxt" />
 
     <TextView
         android:id="@+id/dateClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        android:text="@string/book_isbn"
+        android:text="date"
         android:textColor="@color/profileGrayLight"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+
+    <TextView
+        android:id="@+id/subjectClass"
+        android:layout_width="200dp"
+
+        android:layout_height="135dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="Subject"
+        android:textColor="@color/profileGrayLight"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,62 +84,41 @@
         android:id="@+id/startingTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:text="author"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="Starting time:"
         android:textColor="@color/profileGrayLight"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/studentText"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/subjectClass"
-        android:layout_width="276dp"
-        android:layout_height="123dp"
-
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Review"
-        android:textColor="@color/profileGrayLight"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentText" />
-
-    <TextView
-        android:id="@+id/studentText"
+        android:id="@+id/timeClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="Student "
+        android:layout_marginTop="4dp"
+        android:text="time"
         android:textColor="@color/profileGrayLight"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/startingTimeText" />
 
     <TextView
         android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="ISBN:"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Date:"
         android:textColor="@color/profileGrayLight"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/dateClass"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/cardBackground"
+        app:layout_constraintTop_toBottomOf="@+id/timeClass" />
 
-    <TextView
-        android:id="@+id/saysText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:text="says:"
-        android:textColor="@color/profileGrayLight"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/startingTimeText"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -23,10 +23,44 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/modle_logo"
             android:fontFamily="monospace"
-            android:text="@string/welcome_to_university_app"
+            android:text="Welcome to Roehampton Library"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="20sp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_width="355dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/cancelReservation"
+                        android:layout_width="140dp"
+                        android:visibility="invisible"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/buttonstylepink"
+                        android:text="@string/cancel_your_reservation"
+                        android:textColor="#fff" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout

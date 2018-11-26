@@ -5,7 +5,7 @@ public class ItemViewConstructor {
     int background;
     String profileName;
     int profilePhoto;
-    String nbFollowers;
+    String floorDescription;
 
 
 
@@ -16,7 +16,7 @@ public class ItemViewConstructor {
         this.background = background;
         this.profileName = profileName;
         this.profilePhoto = profilePhoto;
-        this.nbFollowers = nbFollowers;
+        this.floorDescription = nbFollowers;
     }
 
     public int getBackground() {
@@ -43,11 +43,11 @@ public class ItemViewConstructor {
         this.profilePhoto = profilePhoto;
     }
 
-    public String getNbFollowers() {
-        return nbFollowers;
+    public String getFloorDescription() {
+        return floorDescription;
     }
 
-    public void setNbFollowers(String nbFollowers) {
-        this.nbFollowers = nbFollowers;
+    public void setFloorDescription(String floorDescription) {
+        this.floorDescription = floorDescription;
     }
 }

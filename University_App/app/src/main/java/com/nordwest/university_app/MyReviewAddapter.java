@@ -52,10 +52,10 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
         public myReviewViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            review_author = itemView.findViewById(R.id.review_author);
-            bookISBN = itemView.findViewById(R.id.reviewed_ISBN);
-            reviewID = itemView.findViewById(R.id.bookTitle);
-            reviewText = itemView.findViewById(R.id.bookEdition);
+            review_author = itemView.findViewById(R.id.startingTimeText);
+            bookISBN = itemView.findViewById(R.id.dateClass);
+            reviewID = itemView.findViewById(R.id.roomClass);
+            reviewText = itemView.findViewById(R.id.subjectClass);
             
         }
 

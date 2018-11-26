@@ -38,6 +38,7 @@ public class ReviewBookActivity extends AppCompatActivity {
     MyReviewAddapter myReviewAddapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,22 +66,31 @@ public class ReviewBookActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
 
     }
+
+    /*when GO BACK TO LIBRARY BUTTON is pressed Library Activity will get resumed which means that this button will have
+    * same functionality as standard back button*/
     private View.OnClickListener mOnGoBackButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent goToLibrary = new Intent(ReviewBookActivity.this, Library.class);
-            startActivity(goToLibrary);
+            ReviewBookActivity.super.onBackPressed();
+
         }
     };
+
+    /*when ADD NEW REVIEW button is pressed a window will popup allowing user to insert a new review on the book that was earlier chosen*/
     private View.OnClickListener mOnAddButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             dialog.setContentView(R.layout.custompop_up);
             dialog.show();
 
+            /*here all buttons and txt fields on the dialog windows are going to be found and linked with the objects so that later they
+             will perform corresponding actions */
             btnReviewedDone = dialog.findViewById(R.id.btnReviewedDone);
             closePopup = dialog.findViewById(R.id.closePopup);
             reviewContent = dialog.findViewById(R.id.reviewContent);
+
+            /*when button DONE will be pressed the content of the review will be inserted into the database as a new record with ContentValue*/
             btnReviewedDone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -89,21 +99,32 @@ public class ReviewBookActivity extends AppCompatActivity {
 
                     try{
                         if (!TextUtils.isEmpty(reviewContentText)){
-
-                            /*insert into _reviews_ (_review_,_user_id_,_book_id_) values ("Nice book! Recomanded.", "6", "1260440214")*/
+                            //new database helper object opened
                             db = openHelper.getWritableDatabase();
+                            //get ready the content by inserting required
                             contentValues.put(Contract.ReviewEntry.BOOK_ID, bookISBN);
                             contentValues.put(Contract.ReviewEntry.REVIEW_TEXT, reviewContentText);
                             contentValues.put(Contract.ReviewEntry.USER_ID, Contract.StudentEntry.actualUserStudentID);
+                            //content value inserted into database
                             db.insert(Contract.ReviewEntry.TABLE_REVIEWS_NAME, null, contentValues);
+                            //the myReviewAddapter will be notified about the change which supposed to refresh the RecycleView
                             myReviewAddapter.notifyDataSetChanged();
+                            //close the popup window
                             dialog.dismiss();
+                            //Toast a message to inform the user about the record being successfully inserted
                             Toast.makeText(ReviewBookActivity.this, "New review added", Toast.LENGTH_SHORT).show();
+                            //finish the activity
                             finish();
+                            //restart the actual activity (ReviewActivity) which will display newly inserted review
                             startActivity(getIntent());
                         }else {
+                            //In case that something goes wrong a message will be inserted informing the user that the review was not inserted
                             Toast.makeText(ReviewBookActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
+                    /*As working with database sometimes goes wrong because of many reasons such as table structure changes, etc
+                     a catch error will be handy when debugging theerror
+                    * Therefore, a stack trace will be printed in the system files which should never be visibile to end users
+                    * (for user experience and security purposes)*/
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -112,15 +133,17 @@ public class ReviewBookActivity extends AppCompatActivity {
 
                 }
             });
+            //when the close button (text) will be pressed the dialog must end
             closePopup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //end the dialog
                     dialog.dismiss();
                 }
             });
         }
     };
-
+    //this method simply should extract data from the ta
     public void callForData (){
         cursor = db.rawQuery("SELECT _review_id_, _book_id_, _user_id_, _review_, _title_ FROM _book_, _reviews_ where _book_._ISBN_ = _reviews_._book_id_ AND  _reviews_._book_id_ =? ", new String[]{bookISBN});
         if (cursor != null) {
