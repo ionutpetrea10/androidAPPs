@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">My_uni_app</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_auth">Login</string>
+    <string name="loginOrEmail">User Email</string>
+    <string name="login_inputError">Error, account does not exist</string>
+    <string name="contact_us">Contact us</string>
+    <string name="check_your_profile">Check your profile</string>
+    <string name="name_surname">Name Surname</string>
+    <string name="timetable">Timetable</string>
+    <string name="check_your_timetable">Check your timetable</string>
+    <string name="floor_plan">Floor plan</string>
+    <string name="check_the_floor_plan">Check the floor plan</string>
+    <string name="roehampton_com">Roehampton.com</string>
+    <string name="open_you_dashboardin_browser">Open you Dashboardin browser</string>
+    <string name="library">Library</string>
+    <string name="check_your_library">Check your library</string>
+    <string name="access_to_pc_and_wifi">Access to PC and WIFI</string>
+    <string name="check_your_permissions">Check your permissions</string>
+    <string name="user_default_image">user default image</string>
+    <string name="welcome_to_roehampton_university">Welcome to Roehampton University</string>
+    <string name="settings_icon">settings icon</string>
+    <string name="email_icon">email icon</string>
+    <string name="second_name_icon">second name icon</string>
+    <string name="first_name_icon">first name icon</string>
+    <string name="first_name">First Name</string>
+    <string name="second_name">Second Name</string>
+    <string name="email_example_com">Email@example.com</string>
+    <string name="group">Group</string>
+    <string name="phone_number">+4474742154116</string>
+</resources>
