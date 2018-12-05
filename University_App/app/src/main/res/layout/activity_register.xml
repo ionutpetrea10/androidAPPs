@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".register">
+    tools:context=".RegistrationActivity">
 
     <LinearLayout
 
@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,116 +23,147 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/modle_logo"
             android:fontFamily="monospace"
-            android:text="Welcome to Roehampton  University"
+            android:text="@string/welcome_to_university_app"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="20sp" />
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:fontFamily="monospace"-->
-        <!--android:text="Lorem ipsum dolor sit amet,estiae, dolorem, itaque nesciunt perferendis architecto consequuntur earum. Harum, nesciunt!"-->
-        <!--android:textColor="#fff"-->
-        <!--android:textSize="15sp" />-->
-        <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:layout_gravity="center">-->
-        <!--&lt;!&ndash;<Button&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_margin="10dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:text="Login"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:background="@drawable/buttonstylepink"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:textColor="#fff"/>&ndash;&gt;-->
-        <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:background="@drawable/buttonstyle2"-->
-        <!--android:text="Register"-->
-        <!--android:textColor="#fff" />-->
-        <!--</LinearLayout>-->
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_account_circle_black_24dp"/>
+            <EditText
+                android:id="@+id/reg_Fname"
+                android:maxLength="40"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:hint="First Name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_perm_contact_calendar_black_24dp"/>
+            <EditText
+                android:id="@+id/reg_Sname"
+                android:maxLength="40"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Second Name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_email_black_24dp"/>
+            <EditText
+                android:id="@+id/reg_Email"
+                android:digits=".@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Email@example.com"/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/reg_Stud_id"
-            android:layout_width="350dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="Student ID"
-            android:maxLength="20" />
-        <EditText
-            android:id="@+id/reg_Fname"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="First name"
-            android:maxLength="20" />
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/reg_Sname"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="Second name"
-            android:maxLength="20" />
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_lock_black_24dp" />
 
+            <EditText
+                android:id="@+id/reg_Pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:paddingLeft="20dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/reg_Email"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="Email address"
-            android:maxLength="35" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/reg_Group"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="Student Group"
-            android:maxLength="40" />
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_settings_black_24dp"/>
+            <EditText
+                android:id="@+id/reg_Group"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Group"
+                android:maxLength="4"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/reg_Pass"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-            android:drawablePadding="10dp"
-            android:fontFamily="monospace"
-            android:hint="PASSWORD"
-            android:inputType="textPassword"
-            android:maxLength="20" />
+            <TextView
+                android:textStyle="normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/requirement"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_reg_regAct"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_register"
             android:drawableRight="@drawable/ic_send_black_24dp"
             android:fontFamily="monospace"
             android:text="Register"
             android:textColor="#fff" />
-
-
     </LinearLayout>
 </LinearLayout>

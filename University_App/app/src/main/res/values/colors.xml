@@ -16,5 +16,8 @@
     <color name="darkGrey">#CCCCCC</color>
     <color name="profileGrayLight">#fafafa</color>
     <color name="profileBlue">#09c6df</color>
+    <color name="roehamptonColor">#009f6d</color>
+    <color name="cardcolor">#e6e6e6</color>
+    <color name="grayHint">#696969</color>
 
 </resources>
