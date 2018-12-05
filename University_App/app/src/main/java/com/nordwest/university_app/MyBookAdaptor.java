@@ -44,21 +44,12 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
         holder.book_title.setText(mBooks.get(position).getBookTitle());
         holder.book_author.setText(mBooks.get(position).getBookAuthor());
         holder.book_edition.setText(mBooks.get(position).getBookEdition());
-//        if(mBooks.get(position).hasReservated){
-//            holder.btnReserve.setVisibility(View.INVISIBLE);
-//
-//        }else {
-//            holder.btnReserve.setVisibility(View.VISIBLE);
-//        }
         holder.btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openHelper = new DatabaseHelper(context);
                 ContentValues contentValues = new ContentValues();
 
-                /*db = openHelper.getReadableDatabase();
-                cursor = db.rawQuery("SELECT * FROM " + Contract.ReservationEntry.TABLE_RESERVATION_NAME + " where date(current_date) < _due_date_ and " +Contract.ReservationEntry.USER_ID + " =? and "+ Contract.ReservationEntry.BOOK_ID +" =?", new String[]{Contract.StudentEntry.actualUserStudentID, mBooks.get(position).getBookISBN()});
-*/
                 if (Contract.StudentEntry.student_has_reservation){
 
                     Toast.makeText(context, "You are not allowed to reserve this book", Toast.LENGTH_SHORT).show();
@@ -70,12 +61,10 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
                         contentValues.put(Contract.ReservationEntry.BOOK_ID, mBooks.get(position).getBookISBN());
                         contentValues.put(Contract.ReservationEntry.USER_ID, Contract.StudentEntry.actualUserStudentID);
                         db.insert(Contract.ReservationEntry.TABLE_RESERVATION_NAME, null, contentValues);
-                        db.close();
-
                         Toast.makeText(context, "Reserved successfully", Toast.LENGTH_LONG).show();
                         Contract.StudentEntry.student_has_reservation = true;
                         holder.btnReserve.setVisibility(View.INVISIBLE);
-                        Library.cancelReservation.setVisibility(View.VISIBLE);
+                        holder.btnCancelReserv.setVisibility(View.VISIBLE);
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -86,13 +75,25 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
             }
         });
 
+        holder.btnCancelReserv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.btnReserve.setVisibility(View.VISIBLE);
+                holder.btnCancelReserv.setVisibility(View.INVISIBLE);
+                openHelper = new DatabaseHelper(context);
+                db = openHelper.getWritableDatabase();
+                db.delete(Contract.ReservationEntry.TABLE_RESERVATION_NAME, Contract.ReservationEntry.USER_ID +" =? ", new String[]{Contract.StudentEntry.actualUserStudentID});
+               Contract.StudentEntry.student_has_reservation = false;
+                //Toast a message to inform the user about the record being successfully inserted
+                Toast.makeText(context, "Reservation canceled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         holder.btnReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String bookISBN = mBooks.get(position).getBookISBN();
                 context.startActivity(new Intent(context, ReviewBookActivity.class).putExtra(ReviewBookActivity.BOOK_ID_KEY, bookISBN));
-               // holder.searchedBook.setText("");
-                //Toast.makeText(context, "click at position" + mBooks.get(position).getBookISBN(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -107,7 +108,7 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
     public class myViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView book_ISBN, book_title,book_author, book_edition, searchedBook;
-        Button btnReview, btnReserve, btnCancelReservation;
+        Button btnReview, btnReserve, btnCancelReservation, btnCancelReserv;
     public myViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
@@ -118,29 +119,17 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
         btnReview = itemView.findViewById(R.id.btnReview);
         searchedBook = itemView.findViewById(R.id.searchedBook);
         btnReserve = itemView.findViewById(R.id.btnReserve);
-        btnCancelReservation = itemView.findViewById(R.id.cancelReservation);
+        btnCancelReserv = itemView.findViewById(R.id.btnCancel);
 
         if (Contract.StudentEntry.student_has_reservation){
             btnReserve.setVisibility(View.INVISIBLE);
+            btnCancelReserv.setVisibility(View.VISIBLE);
+
         }else {
             btnReserve.setVisibility(View.VISIBLE);
+            btnCancelReserv.setVisibility(View.INVISIBLE);
 
         }
-        /*   openHelper = new DatabaseHelper(context);
-
-        db = openHelper.getReadableDatabase();
-        Cursor cursor1;
-        cursor1 = db.rawQuery("SELECT * FROM " + Contract.ReservationEntry.TABLE_RESERVATION_NAME + " where date(current_date) < _due_date_ and " +Contract.ReservationEntry.USER_ID + " =? and "+ Contract.ReservationEntry.BOOK_ID +" =?", new String[]{Contract.StudentEntry.actualUserStudentID, itemView.});
-        if ((cursor1 != null) && (cursor1.moveToFirst()) ){
-
-            btnReserve.setVisibility(View.INVISIBLE);
-          //  Toast.makeText(context, "You are not allowed to reserve this book", Toast.LENGTH_SHORT).show();
-
-
-        }else {
-
-        }*/
-
 
     }
 
