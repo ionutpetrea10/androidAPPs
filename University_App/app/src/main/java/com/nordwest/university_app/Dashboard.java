@@ -1,9 +1,6 @@
 package com.nordwest.university_app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -12,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
@@ -94,7 +90,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         Intent intent;
         //tests which card was clicked in order to start correct intent (activity) and forward the user the selected activity
         switch (v.getId()){
-            case R.id.id_wifi: intent = new Intent(this, Wifi.class);
+            case R.id.id_wifi: intent = new Intent(this, NewsFeedActivity.class);
             startActivity(intent);
             break;
             case R.id.id_webDashboard: intent = new Intent(this, WebDashboard.class);

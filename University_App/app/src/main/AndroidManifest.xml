@@ -31,7 +31,7 @@
             android:name=".Dashboard"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Wifi"
+            android:name=".NewsFeedActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Timetable"
             android:screenOrientation="portrait"/>
