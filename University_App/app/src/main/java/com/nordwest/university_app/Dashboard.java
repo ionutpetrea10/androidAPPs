@@ -16,26 +16,27 @@ import android.widget.Toolbar;
 
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
-
+    //variable declaration
     private CardView wifi, dashboard, floorPlan, library, timetable, profile;
     private TextView userNameText;
-    private Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        //welcome the user to the dashboard message
         Toast.makeText(getApplicationContext(), "Welcome to the dashboard " + Contract.StudentEntry.actualUserFirstName +"!", Toast.LENGTH_LONG).show();
 
-        //defining the cards
+        //defining the cards and linking with the cardWidgets and fields
         wifi = findViewById(R.id.id_wifi);
         dashboard = findViewById(R.id.id_webDashboard);
         floorPlan = findViewById(R.id.id_floorPlan);
         library = findViewById(R.id.id_library);
         timetable = findViewById(R.id.id_timeTable);
         profile = findViewById(R.id.id_profile);
-
         userNameText = findViewById(R.id.dashUserName);
+
+        //set user name field
         userNameText.setText(Contract.StudentEntry.actualUserFirstName + " " + Contract.StudentEntry.actualUserSecondName);
 
 
@@ -44,8 +45,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         //Grating  message when successfully login
         Toast.makeText(getBaseContext(),"Welcome to the Dashboard",Toast.LENGTH_LONG).show();
 
-        //adds click listeners to the cards
-
+        //set clickListeners to each card
         wifi.setOnClickListener(this);
         dashboard.setOnClickListener(this);
         floorPlan.setOnClickListener(this);
@@ -84,14 +84,15 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-        }
+        }//returns selected option
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onClick(View v) {
+        //initiate intent
         Intent intent;
-        //tests which card was clicked in order to start correct intent (activity)
+        //tests which card was clicked in order to start correct intent (activity) and forward the user the selected activity
         switch (v.getId()){
             case R.id.id_wifi: intent = new Intent(this, Wifi.class);
             startActivity(intent);
