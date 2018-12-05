@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class Profile extends AppCompatActivity {
 
+    //variable declaration
     TextView profileName ,profileSt_ID ,groupProfile ,EmailProfile;
-
     private static boolean isFabOpen;
     private FloatingActionButton fabMain;
     private FloatingActionButton fabOut;
@@ -24,7 +24,10 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set the corresponding layout on onCreate activity
         setContentView(R.layout.activity_profile);
+
+        //defining the fields and linking with the widgets from layout
         profileName = findViewById(R.id.userProfileName);
         profileSt_ID = findViewById(R.id.studentProfileID);
         groupProfile = findViewById(R.id.groupProfile);
@@ -34,7 +37,7 @@ public class Profile extends AppCompatActivity {
         fabOut = findViewById(R.id.fab_signOut);
         bgFabMenu = findViewById(R.id.bg_fab_menu);
 
-
+        //set corresponding user information onto corresponding fields that helps to display and customize the profile
         profileName.setText(Contract.StudentEntry.actualUserFirstName + " " + Contract.StudentEntry.actualUserSecondName);
         profileSt_ID.setText(Contract.StudentEntry.actualUserSecondName.substring(0,3).toUpperCase()+ "101" + Contract.StudentEntry.actualUserStudentID);
         groupProfile.setText(Contract.StudentEntry.actualUserGroupName);
@@ -68,7 +71,7 @@ public class Profile extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-        }
+        }//returns selected option
         return super.onOptionsItemSelected(item);
     }
 
