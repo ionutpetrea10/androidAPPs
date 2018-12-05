@@ -56,13 +56,12 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
                 openHelper = new DatabaseHelper(context);
                 ContentValues contentValues = new ContentValues();
 
-                db = openHelper.getReadableDatabase();
+                /*db = openHelper.getReadableDatabase();
                 cursor = db.rawQuery("SELECT * FROM " + Contract.ReservationEntry.TABLE_RESERVATION_NAME + " where date(current_date) < _due_date_ and " +Contract.ReservationEntry.USER_ID + " =? and "+ Contract.ReservationEntry.BOOK_ID +" =?", new String[]{Contract.StudentEntry.actualUserStudentID, mBooks.get(position).getBookISBN()});
-
-                if ((cursor != null) && (cursor.moveToFirst()) ){
+*/
+                if (Contract.StudentEntry.student_has_reservation){
 
                     Toast.makeText(context, "You are not allowed to reserve this book", Toast.LENGTH_SHORT).show();
-
 
                 }else {
 
@@ -81,7 +80,6 @@ public class MyBookAdaptor extends RecyclerView.Adapter<MyBookAdaptor.myViewHold
                         e.printStackTrace();
                     }
                 }
-
 
 
 

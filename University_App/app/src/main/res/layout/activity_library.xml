@@ -23,10 +23,11 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/modle_logo"
             android:fontFamily="monospace"
-            android:text="Welcome to Roehampton Library"
+            android:text="@string/welcome_to_roehampton_library"
             android:textAlignment="center"
             android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:drawableStart="@drawable/modle_logo" />
 
         <android.support.v7.widget.CardView
             android:layout_width="350dp"

@@ -40,7 +40,7 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/cardview_light_background"
         android:background="@drawable/buttonstyledark"
-        android:text="Reserve"
+        android:text="@string/reserve"
         app:layout_constraintBottom_toTopOf="@+id/btnReview"
         app:layout_constraintEnd_toEndOf="@+id/cardBackground" />
 
