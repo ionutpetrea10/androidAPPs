@@ -6,7 +6,6 @@ public class MyViewBookHolder {
     String bookISBN;
     String bookAuthor;
     String bookEdition;
-    //boolean hasReservated;
 
     public MyViewBookHolder() {
     }
@@ -16,7 +15,6 @@ public class MyViewBookHolder {
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.bookEdition = bookEdition;
-        //this.hasReservated = hasReservated;
     }
 
     public String getBookTitle() {
@@ -50,12 +48,4 @@ public class MyViewBookHolder {
     public void setBookEdition(String bookEdition) {
         this.bookEdition = bookEdition;
     }
-/*
-    public boolean isHasReservated() {
-        return hasReservated;
-    }
-
-    public void setHasReservated(boolean hasReservated) {
-        this.hasReservated = hasReservated;
-    }*/
 }

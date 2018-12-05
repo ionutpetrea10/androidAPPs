@@ -26,10 +26,6 @@ public final class Contract {
         public static final String STUDENT_PASWD = "_password_";
 
 
-
-
-
-
         public static String actualUserFirstName;
         public static String actualUserSecondName;
         public static String actualUserGroupName;
