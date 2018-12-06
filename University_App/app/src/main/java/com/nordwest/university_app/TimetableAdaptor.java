@@ -29,7 +29,8 @@ public class TimetableAdaptor extends RecyclerView.Adapter<TimetableAdaptor.myVi
         View v = inflater.inflate(R.layout.timetable_card_model, parent, false);
         return new myViewHolder(v);
     }
-    //gets data from the List mClasses and set adopt (set) to be displayed on each card the recyclerView creates
+
+    //gets data from the List mClasses and adopt it (set) to the card on the recyclerView
     @Override
     public void onBindViewHolder(final myViewHolder holder, int position) {
         holder.dateClass.setText(mClasses.get(position).getDateClass());
@@ -39,12 +40,13 @@ public class TimetableAdaptor extends RecyclerView.Adapter<TimetableAdaptor.myVi
 
     }
 
+    //returns the size of the list
     @Override
     public int getItemCount() {
         return mClasses.size();
     }
 
-
+    //class holder used to link the card structure with java objects and sets click listeners on each card
     public class myViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //variable declaration
         TextView timeClass, subjectClass, dateClass, roomClass;
@@ -61,12 +63,12 @@ public class TimetableAdaptor extends RecyclerView.Adapter<TimetableAdaptor.myVi
 
 
         }
-        //launch Singele_flor_planActivity which takes the room and stores in FLOOR_ID variable therefore, will open the floor plan where sent room was found
+        //launch Singele_flor_planActivity which takes the room name and stores in FLOOR_ID variable therefore, will open the floor plan with corresponding room on it
         @Override
         public void onClick(View view) {
             //gets the position where the card was clicked
             int position = getAdapterPosition();
-            //initiates new intent and send extra data to the new intent
+            //initiates new intent and send extra data to the new intent according to the clicked card
             Intent intent = new Intent(context, Singele_flor_planActivity.class).putExtra(Singele_flor_planActivity.FLOOR_ID, mClasses.get(position).getRoomClass());
             //launch the activity
             context.startActivity(intent);

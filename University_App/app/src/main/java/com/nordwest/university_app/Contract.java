@@ -13,7 +13,7 @@ public final class Contract {
     public static final String DATABASE_NAME = "university.db";
     public static final int DATABASE_VERSION = 1;
 
-    //inner class with the DB schema
+    //inner classes that describe some DB table structure
 
     public static class StudentEntry{
 

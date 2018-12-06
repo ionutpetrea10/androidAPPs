@@ -1,21 +1,24 @@
 package com.nordwest.university_app;
-
+/*This is a constructor class for review cards used by the adaptor in recyclerView to display
+ * each class of a specific group */
 public class ReviewHolder {
+
     String reviewID;
     String bookISBN;
     String reviewAuthor;
     String reviewText;
 
+    //empty constructor for abstraction
     public ReviewHolder() {
     }
-
+    //constructor that requires four parameters
     public ReviewHolder(String reviewID, String bookISBN, String reviewAuthor, String reviewText) {
         this.reviewID = reviewID;
         this.bookISBN = bookISBN;
         this.reviewAuthor = reviewAuthor;
         this.reviewText = reviewText;
     }
-
+    //setters and getters
     public String getReviewID() {
         return reviewID;
     }

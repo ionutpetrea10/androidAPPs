@@ -64,7 +64,7 @@ public class Timetable extends AppCompatActivity  /* ListActivity implements Ada
         cursor = db.rawQuery("SELECT _classes_._time_ as  'Starting time' , _date_ AS 'Date', _module_._module_name_ as 'Subject' " +
                 "from _classes_, _module_ " +
                 "where _group_id_ =? and _classes_._module_code_ = _module_._module_code_  ORDER BY _date_ ASC ", new String[]{choice});
-            //if the records found than set retried data accordingly to be later displayed in the recyclerView
+            //if the records found then set retrieved data accordingly to be later displayed in the recyclerView
             if (cursor != null && cursor.moveToFirst()) {
                 do {
                         //stores the time in time

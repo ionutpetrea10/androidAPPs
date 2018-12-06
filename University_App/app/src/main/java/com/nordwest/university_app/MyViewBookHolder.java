@@ -1,15 +1,18 @@
 package com.nordwest.university_app;
 
 public class MyViewBookHolder {
-
+    /*This is a constructor class for book cards used by the adaptor in recyclerView to display
+     * each class of a specific group */
     String bookTitle;
     String bookISBN;
     String bookAuthor;
     String bookEdition;
 
+    //empty constructor for abstraction
     public MyViewBookHolder() {
     }
 
+    //constructor that requires four parameters
     public MyViewBookHolder(String bookISBN, String bookTitle, String bookAuthor, String bookEdition) {
         this.bookISBN = bookISBN;
         this.bookTitle = bookTitle;
@@ -17,6 +20,7 @@ public class MyViewBookHolder {
         this.bookEdition = bookEdition;
     }
 
+    //setters and getters
     public String getBookTitle() {
         return bookTitle;
     }
