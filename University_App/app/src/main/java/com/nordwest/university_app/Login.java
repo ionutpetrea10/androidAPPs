@@ -66,14 +66,12 @@ public class Login extends AppCompatActivity {
             String pass = userPassword.getText().toString().trim();
             //checks email  and password structure validity before opening the database as it will help to save resources e.g password is empty or email has an incorrect format
             if (isEmailValid() && isPasswordValid()){
-                //if the validation was completed the fields are set to empty
-                userEmail.setText("");
-                userPassword.setText("");
                 //try block will help to run the sql action safe and will throw exception if something went wrong
                 try {
                     //stores in cursor retried record from database table user where inserted email and password were found
-                    cursor = db.rawQuery("SELECT * FROM " +Contract.StudentEntry.TABLE_USER_NAME + " WHERE " +Contract.StudentEntry.STUDENT_EMAIL +" =? " +
+                    cursor = db.rawQuery("SELECT * FROM _user_ WHERE " + Contract.StudentEntry.STUDENT_EMAIL + " =? " +
                             "AND " + Contract.StudentEntry.STUDENT_PASWD + " =? ", new String[]{email, pass});
+                    cursor.moveToFirst();
                     //if the cursor is not null meaning that there was a record found then execute the following block
                     if ((cursor != null) && (cursor.moveToFirst()) ){
                         //stores information about the user in the contract class as they will be used by the app later instead of querying all the time from database
@@ -88,18 +86,26 @@ public class Login extends AppCompatActivity {
 
 
                         /*retrieve from database information about user reservations if the user has reserved at least one book is not able to reserve anymore*/
-                        cursorBookings = db.rawQuery("select * from _reservations_ where _reservations_._user_id_ =? ",
-                                new String[]{Contract.StudentEntry.actualUserStudentID});
-                        if ((cursorBookings != null) && (cursorBookings.moveToFirst()) ) {
-                            //if records found set user is not able to reserve
-                            Contract.StudentEntry.student_has_reservation = true;
-                            //if no records found than set the reservation false meaning user can reserve book
-                        }else {
-                            Contract.StudentEntry.student_has_reservation = false;
+                        cursorBookings = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table' AND name =?;",
+                                new String[]{Contract.ReservationEntry.TABLE_RESERVATION_NAME});
+                        if (cursorBookings != null){
+                            cursorBookings = db.rawQuery("select * from _reservations_ where _reservations_._user_id_ =? ",
+                                    new String[]{Contract.StudentEntry.actualUserStudentID});
+                            if ((cursorBookings != null) && (cursorBookings.moveToFirst()) ) {
+                                //if records found set user is not able to reserve
+                                Contract.StudentEntry.student_has_reservation = true;
+                                //if no records found than set the reservation false meaning user can reserve book
+                                login();
+                            }else {
+                                Contract.StudentEntry.student_has_reservation = false;
+                                login();
+                            }
+                        }else{
+                            login();
                         }
-                        //if everything executed correctly and user exists in database than start new activity and user is forwarded to the dashboard activity
-                        Intent intent = new Intent(Login.this, Dashboard.class);
-                        startActivity(intent);
+
+                    }else {
+                        Toast.makeText(Login.this, "Account not found", Toast.LENGTH_SHORT).show();
                     }
                     //if error caught than write on the stackTrace about the error
                     //which will be later user of debugging the error
@@ -134,6 +140,15 @@ public class Login extends AppCompatActivity {
         }
     };
 
+
+    public void login(){
+        //if the validation was completed the fields are set to empty
+        userEmail.setText("");
+        userPassword.setText("");
+        //if everything executed correctly and user exists in database than start new activity and user is forwarded to the dashboard activity
+        Intent intent = new Intent(Login.this, Dashboard.class);
+        startActivity(intent);
+    }
 
     //check if the email is not empty and it match with and the text inserted is an email and return true or false
     private boolean isEmailValid(){
