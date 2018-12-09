@@ -85,7 +85,7 @@
                 android:src="@drawable/ic_email_black_24dp"/>
             <EditText
                 android:id="@+id/reg_Email"
-                android:digits=".@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:digits="._@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

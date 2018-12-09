@@ -1,17 +1,17 @@
 package com.nordwest.university_app;
 
 public class ItemViewConstructor {
-
+    /*This is a constructor class for floor plan cards used by the adaptor in recyclerView to display
+     * each class of a specific group */
     int background;
     String profileName;
     int profilePhoto;
     String floorDescription;
 
-
-
+    //empty constructor when no data is set
     public ItemViewConstructor() {
     }
-
+    //constructor that requires four parameters
     public ItemViewConstructor(int background, String profileName, int profilePhoto, String nbFollowers) {
         this.background = background;
         this.profileName = profileName;
@@ -19,6 +19,7 @@ public class ItemViewConstructor {
         this.floorDescription = nbFollowers;
     }
 
+    //setters and getters
     public int getBackground() {
         return background;
     }

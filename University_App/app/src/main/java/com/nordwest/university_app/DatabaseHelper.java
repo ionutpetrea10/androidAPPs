@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private Contract dbHelper;
 
 
-    //The SQL query for table creation
+    //The SQL query for table _user_ creation
     public static final String CREATE_TABLE_USER = "CREATE TABLE IF NOT EXISTS "+Contract.StudentEntry.TABLE_USER_NAME +
             "(" + Contract.StudentEntry.STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
              Contract.StudentEntry.STUDENT_FNAME + " TEXT NOT NULL," +
@@ -24,6 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Contract.StudentEntry.STUDENT_GROUP + " TEXT NOT NULL," +
             Contract.StudentEntry.STUDENT_PASWD + " TEXT NOT NULL)";
 
+    //The SQL query for table _reservations_ creation
     public static final String CREATE_RESERVE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS " + Contract.ReservationEntry.TABLE_RESERVATION_NAME +
             "( "+Contract.ReservationEntry.RESERVATION_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
             Contract.ReservationEntry.USER_ID + " INTEGER NOT NULL," +
@@ -76,18 +77,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_RESERVATION);
         onCreate(db);
     }
-
-    //at this point DB and the table is created in order to insert data in the table _user_ new methods must be created within the class DBHelper
-
-//    //method to insert data into the table
-//    public static void addStudent(String fName, String sName, String email, String address, String password, SQLiteDatabase database) {
-//
-
-    /*public Cursor getInforation(DatabaseHelper db){
-        SQLiteDatabase SQ = db.getReadableDatabase();
-        String[] collection = {Contract.StudentEntry.STUDENT_EMAIL, Contract.StudentEntry.STUDENT_PASWD};
-        Cursor cursor = SQ.query(Contract.StudentEntry.TABLE_USER_NAME,collection,null,null,null,null,null);
-        return cursor;
-    }*/
 
 }

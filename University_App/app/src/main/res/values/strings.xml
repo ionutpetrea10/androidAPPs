@@ -53,4 +53,6 @@
     <string name="check_what_s_new">Check what\'s new</string>
     <string name="welcome_to_roehampton_library">Welcome to Roehampton Library</string>
     <string name="reserve">Reserve</string>
+    <string name="cancel">cancel</string>
+    <string name="check_the_floor_plans">Check the floor plans</string>
 </resources>

@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@drawable/buttonstyledark"
-                        android:text="Check the floor plan"
+                        android:text="@string/check_the_floor_plans"
                         android:textColor="#fff" />
 
                 </LinearLayout>

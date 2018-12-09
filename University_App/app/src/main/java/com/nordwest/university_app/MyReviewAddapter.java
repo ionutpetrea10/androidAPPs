@@ -13,23 +13,27 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myReviewViewHolder> {
+
+    //variable declaration
     Context context;
     List<ReviewHolder> mReviews;
     SQLiteOpenHelper openHelper;
-    SQLiteDatabase db;
-    Cursor cursor;
 
+    //adapter constructor
+    //adaptor will adopt the given List of data to the context
     public MyReviewAddapter(Context context, List<ReviewHolder> mReviews) {
         this.context = context;
         this.mReviews = mReviews;
     }
 
+    //inflates the data onCreate time and adopt it to the cardView
     @Override
     public myReviewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.review_card_model, parent, false);
         return new myReviewViewHolder(v);    }
 
+    //gets data from the List mReviews and adopt it (set) to the card on the recyclerView
     @Override
     public void onBindViewHolder(final myReviewViewHolder holder, int position) {
         holder.review_author.setText(mReviews.get(position).getReviewAuthor());
@@ -38,17 +42,18 @@ public class MyReviewAddapter extends RecyclerView.Adapter<MyReviewAddapter.myRe
         holder.reviewText.setText(mReviews.get(position).getReviewText());
         openHelper = new DatabaseHelper(context);
     }
-
+    //returns the size of the list
     @Override
     public int getItemCount() {
         return mReviews.size();
     }
 
-
+    //class holder used to link the card structure with java objects and sets click listeners on each card
     public class myReviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+        //variable declaration
         TextView reviewID, bookISBN,review_author, reviewText;
 
+        //links the widgets of the cart with the object variables declared above
         public myReviewViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
